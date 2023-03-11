@@ -6,7 +6,6 @@ This repo is the implementation for [**MetricfMRI**](insert arxiv link here).
 ## Contents
 - [Datasets](#datasets)
 - [Train with our datasets](#training)
-- [HyperParameters](#HyperParameters)
 - [Explainability]
 - [Cite](#cite)
 
@@ -32,6 +31,9 @@ We currently support the following datasets
   2. fingerprinting phase (subject triplet)
   3. fine-tuning on stress prediction.
   - run main.py
+
+## Explainability
+in the explainability directory there are example scripts to run in order to produce explainability figures that are based on the saliency map method described in the paper. notice that in order to produce explainability figures one should insert a path to a trained model. 
 
 ## Tensorboard support
 All metrics are being logged automatically and stored in
