@@ -13,7 +13,7 @@ def get_arguments(base_path):
     delete_stale_experiments()
     parser = argparse.ArgumentParser()
     parser.add_argument('--base_path', default=base_path)
-    parser.add_argument('--seed', type=int, default=3)#55555555)
+    parser.add_argument('--seed', type=int, default=55555555)
     parser.add_argument('--dataset_name', type=str, default="ayam")
     parser.add_argument('--cuda', default=True)
     parser.add_argument('--log_dir', type=str, default=os.path.join(base_path, 'runs'))
@@ -105,7 +105,7 @@ def main(base_path):
     args.seed = 5555555
     model_weights_path_phase2 = run_phase(args, None, '1', 'AR_pervoxel_', Trainer)
     model_weights_path_phase3 = run_phase(args,model_weights_path_phase2,'2','subj_trip_per_voxel_',Trainer)
-    #run_phase(args,model_weights_path_phase3,'3','FT_',Trainer)
+    run_phase(args,model_weights_path_phase3,'3','FT_',Trainer)
 
 
 

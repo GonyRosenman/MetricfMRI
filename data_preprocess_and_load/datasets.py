@@ -217,37 +217,6 @@ class OasisMRI(BaseDataset):
         return {'fmri_sequence':y,'subject_regression':torch.tensor(AGE).float(),'subject':subject_num}
 
 
-class Tom(BaseDataset):
-    def __init__(self, **kwargs):
-        super(Tom,self).__init__(**kwargs)
-        self.sessions = ['ses-1','ses-2','ses-3']
-        self.root = r'D:\users\Gony\ptsd\tom'
-        #self.meta_data = pd.read_csv(os.path.join(self.root, 'caps.csv'))
-        self.data_dir = os.path.join(self.root, 'MNI_to_TRs')
-        self.subject_names = os.listdir(self.data_dir)
-        self.subjects = len(os.listdir(self.data_dir))
-        self.index_l = []
-        for j,subj in enumerate(os.listdir(self.data_dir)):
-            for time in os.listdir(os.path.join(self.data_dir,subj)):
-                for session in os.listdir(os.path.join(self.data_dir,subj,time)):
-                    for task in os.listdir(os.path.join(self.data_dir,subj,time,session)):
-                        path_to_TRs = os.path.join(self.data_dir,subj,time,session,task,self.norm)
-                        session_duration = len(os.listdir(path_to_TRs)) - self.sample_duration
-                        for k in range(0,session_duration,self.stride):
-                            self.index_l.append((j,subj,path_to_TRs, 'TR_' + str(k), session_duration, self.convert_class(task)))
-
-    def __len__(self):
-        N = len(self.index_l)
-        return N
-
-    def __getitem__(self, index):
-        subj_num, subj_name, TRs_path, TR, session_duration, diagnosis = self.index_l[index]
-        diagnosis = np.nan
-        y, TR = self.load_sequence(TRs_path, TR)
-        input_dict = {'fmri_sequence': y, 'subject': subj_num, 'subject_classification': diagnosis,
-                      'TR': int(TR.split('_')[1])}
-        return input_dict
-
 class Ayam(BaseDataset):
     def __init__(self, **kwargs):
         super(Ayam,self).__init__(**kwargs)
@@ -315,37 +284,3 @@ class Ayam(BaseDataset):
                 f.write('couldnt load {} because of {}\n\n'.format(TRs_path+str(TR),e))
         input_dict = {'fmri_sequence':y,'subject':subj_num ,'subject_classification':diagnosis , 'TR':int(TR.split('_')[1])}
         return input_dict
-
-class Ziv(BaseDataset):
-    def __init__(self, **kwargs):
-        super(Ziv,self).__init__(**kwargs)
-        self.sessions = ['ses-1','ses-2','ses-3']
-        self.root = Path(r'D:\users\Gony\ptsd\ziv')
-        self.meta_data = pd.read_csv(self.root.joinpath('caps.csv'))
-        self.data_dir = self.root.joinpath('MNI_to_TRs')
-        self.subject_names = list(self.data_dir.iterdir())
-        self.index_l = []
-        for i,subject_dir in enumerate(self.data_dir.rglob('sub*')):
-            for task_dir in subject_dir.iterdir():
-                for session_dir in task_dir.iterdir():
-                    session = session_dir.name
-                    task = task_dir.name
-                    if not task == 'fcmri':
-                        continue
-                    subject = subject_dir.name
-                    TRs_path = session_dir.joinpath(self.norm)
-                    session_duration = len(list(TRs_path.iterdir())) - self.sample_duration
-                    for k in range(0,session_duration, self.stride):
-                        self.index_l.append((i, subject[-4:], str(TRs_path), 'TR_' + str(k), session_duration, (task, session)))
-
-    def __len__(self):
-        N = len(self.index_l)
-        return N
-
-    def __getitem__(self, index):
-        subj_num, subj_name ,TRs_path, TR, session_duration, diagnosis = self.index_l[index]
-        diagnosis = torch.tensor([float('nan')])
-        y, TR = self.load_sequence(TRs_path,TR)
-        input_dict = {'fmri_sequence':y,'subject':subj_num ,'subject_classification':diagnosis , 'TR':int(TR.split('_')[1])}
-        return input_dict
-

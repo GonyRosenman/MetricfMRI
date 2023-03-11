@@ -8,7 +8,7 @@ import numpy as np
 from itertools import zip_longest
 from metrics import Metrics
 import torch
-from parcellations.make_parcellations import Parcellation
+from parcellations.make_parcellation import Parcellation
 from explainability.explainer_class import ExplainerTSNE
 
 class Writer():

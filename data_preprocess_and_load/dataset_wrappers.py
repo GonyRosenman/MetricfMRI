@@ -1,4 +1,4 @@
-from parcellations.make_parcellations import RawDataParcellation
+from parcellations.make_parcellation import RawDataParcellation
 from data_preprocess_and_load.datasets import *
 
 def concat_dynamic_loaders(BaseClass,dynamic_func,**kwargs):

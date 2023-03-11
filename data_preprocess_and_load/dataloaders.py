@@ -43,12 +43,6 @@ class DataHandler():
             dataset = Ucla
         elif self.dataset_name == 'ayam':
             dataset = Ayam
-        elif self.dataset_name == 'ptsd':
-            dataset = (Ziv,Ayam,Tom)
-        elif self.dataset_name == 'ziv':
-            dataset = Ziv
-        elif 'ziv' in self.dataset_name and 'ayam' in self.dataset_name:
-            dataset = (Ziv,Ayam)
         else:
             raise NotImplementedError
         if kwargs.get('time_series') == 'only':
