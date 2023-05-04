@@ -1,5 +1,5 @@
 # MetricfMRI (MIDL 2023)
-This repo is the implementation for [**Pre-Training Transformers for Fingerprinting to Improve Stress Prediction in fMRI **](insert arxiv link here). 
+This repo is the implementation for **[Pre-Training Transformers for Fingerprinting to Improve Stress Prediction in fMRI ](https://arxiv.org/abs/2112.05761v1)**. 
 
 
 
