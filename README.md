@@ -15,6 +15,8 @@ We currently support the following datasets
   * Register at (https://db.humanconnectome.org/)
   * Download: WU-Minn HCP Data - 1200 Subjects -> Subjects with 3T MR session data -> Resting State fMRI 1 Preprocessed
   * Preprocess the data by configuring the folders and run 'data_preprocess_and_load/preprocessing.main()'
+  * [Link to a single subject scan from HCP (insert it in PathHandler -> exemplar)](https://drive.google.com/file/d/1zT9n1QL7GYTUAb8HOlqjEujzg40WAi6U/view?usp=share_link)
+    
     
 * ucla (Consortium for Neuropsychiatric Phenomics LA5c Study) 
   * Original version available at (https://openneuro.org/datasets/ds000030/versions/00016)
