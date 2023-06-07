@@ -22,7 +22,7 @@ We currently support the following datasets
   * Original version available at (https://openneuro.org/datasets/ds000030/versions/00016)
   * can be preprocessed according to similar hyperparameters available at the preprocess directory.
 
-* ayam (the CPS dataset mentioned in our paper, cannot be published) 
+* stress-no stress (the CPS dataset mentioned in our paper, cannot be published) 
   * due to medical privacy of subjects - cannot be published.
 
 ## Training
