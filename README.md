@@ -43,6 +43,14 @@ Run `tesnroboard --logdir=<path>` to see the the logs.
 
 ## Citing & Authors
 If you find this repository helpful, feel free to cite our publication -
-insert Cite here
+
+@inproceedings{
+rosenman2023pretraining,
+title={Pre-Training Transformers for Fingerprinting to Improve Stress Prediction in f{MRI}},
+author={Gony Rosenman and Itzik Malkiel and Ayam Greental and Talma Hendler and Lior Wolf},
+booktitle={Medical Imaging with Deep Learning},
+year={2023},
+url={https://openreview.net/forum?id=W9qI8DwoUFF}
+}
 
 Contact: [Gony Rosenman](mailto:gonyrosenman@mail.tau.ac.il), [Itzik Malkiel](mailto:itzik.malkiel@microsoft.com).
