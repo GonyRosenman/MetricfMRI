@@ -44,13 +44,22 @@ Run `tesnroboard --logdir=<path>` to see the the logs.
 ## Citing & Authors
 If you find this repository helpful, feel free to cite our publication -
 
-@inproceedings{
-rosenman2023pretraining,
-title={Pre-Training Transformers for Fingerprinting to Improve Stress Prediction in f{MRI}},
-author={Gony Rosenman and Itzik Malkiel and Ayam Greental and Talma Hendler and Lior Wolf},
-booktitle={Medical Imaging with Deep Learning},
-year={2023},
-url={https://openreview.net/forum?id=W9qI8DwoUFF}
+
+@InProceedings{pmlr-v227-rosenman24a,
+  title = 	 {Pre-Training Transformers for Fingerprinting to Improve Stress Prediction in fMRI},
+  author =       {Rosenman, Gony and Malkiel, Itzik and Greental, Ayam and Hendler, Talma and Wolf, Lior},
+  booktitle = 	 {Medical Imaging with Deep Learning},
+  pages = 	 {212--234},
+  year = 	 {2024},
+  editor = 	 {Oguz, Ipek and Noble, Jack and Li, Xiaoxiao and Styner, Martin and Baumgartner, Christian and Rusu, Mirabela and Heinmann, Tobias and Kontos, Despina and Landman, Bennett and Dawant, Benoit},
+  volume = 	 {227},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {10--12 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v227/rosenman24a/rosenman24a.pdf},
+  url = 	 {https://proceedings.mlr.press/v227/rosenman24a.html},
+  abstract = 	 {We harness a Transformer-based model and a pre-training procedure for fingerprinting on fMRI data, to enhance the accuracy of stress predictions. Our model, called MetricFMRI, first optimizes a pixel-based reconstruction loss. In a second unsupervised training phase, a triplet loss is used to encourage fMRI sequences of the same subject to have closer representations, while sequences from different subjects are pushed away from each other. Finally, supervised learning is used for the target task, based on the learned representation. We evaluate the performance of our model and other alternatives and conclude that the triplet training for the fingerprinting task is key to the improved accuracy of our method for the task of stress prediction. To obtain insights regarding the learned model, gradient-based explainability techniques are used, indicating that sub-cortical brain regions that are known to play a central role in stress-related processes are highlighted by the model.}
 }
+
 
 Contact: [Gony Rosenman](mailto:gonyrosenman@mail.tau.ac.il), [Itzik Malkiel](mailto:itzik.malkiel@microsoft.com).
